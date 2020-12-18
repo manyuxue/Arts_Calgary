@@ -1,0 +1,60 @@
+{
+  "one": "Singular sensation",
+  "two": "Beady little eyes",
+  "three": "Little birds pitch by my doorstep"
+}
+
+	<script>
+		var myApp = angular.module('myApp', ['ngRoute']);
+		
+
+		myApp.config(function($routeProvider){
+			$routeProvider.
+				when('/',{
+				templateUrl: 'index.html',
+				controller: 'arthomeCtrl'
+				}).
+				when('/:type',{
+				template: 'oilpaintingCat.html',
+				controller: 'oilpaintingCtrl'
+				}).
+				otherwhise({
+				redirectTo: '/'
+				});
+		});
+		
+		app.controller('arthomeCtrl', function($scope, $http) {
+			$http.get("arttypes.json")
+			.then(function(response) {
+				$scope.picdata = response.data;
+				});
+			});
+		myApp.controller('oilpaintingCtrl', function($scope, $routeParams){
+			$scope.artType = $routeParams.type;
+		});
+	</script>
+	
+			myApp.factory('artworks', function($http){
+			return {
+				list: function(callback){
+					$http.get("gallery.json").then(callback); 
+				},
+				find: function(name, callback){
+					$http.get("gallery.json").success(function(data){
+						var work = data.filter(function(entry){
+							return entry.type === 'oil painting';
+						})[0];
+						callback(work);
+					});
+				}   
+			};
+		});
+ 
+		  
+		app.controller('oilPaintingCtrl', function($scope, $http, callback) {
+			$http.get("gallery.json")
+			.then(function(response) {
+				$scope.picdataoilpainting = response.data.filter(function(entry){
+							return entry.type === 'oil painting';
+						})[0];
+				callback(work);

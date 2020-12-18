@@ -1,0 +1,5 @@
+<ul class="list-inline intro-social-buttons">
+		<li ng-repeat="pic in pics | unique: 'type'">
+			<a href="#/{{pic.type}}" class="btn btn-default btn-lg"><span class="glyphicon glyphicon-leaf"><span class="network-name">{{pic.type}}</span></a>
+		</li>
+</ul>

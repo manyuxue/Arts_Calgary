@@ -1,0 +1,102 @@
+*{
+	margin:0;
+	padding:0;
+}
+#pop_background{
+	position: fixed;
+	width:100%;
+	height:100%;
+	top:0;
+	left:0;
+	margin:auto;
+	background:#000;
+	opacity:.8;
+	z-index:1000;
+	cursor:pointer;
+	display:none;
+}
+
+#pop_box{
+	position:absolute;
+	background:#fff;
+	max-width:90%;
+	padding:0 10px 10px 10px;
+	position: fixed;
+	width: auto;
+	z-index:1500;
+	display:none;
+	cursor:pointer;
+	border-radius:0px;
+}
+
+#btnclose{
+	width:20px;
+	height:20px;
+	border-radius:50%;
+	border:1px solid #999;
+	text-align:center;
+	line-height:20px;
+	float:right;
+}
+
+div.artdec{
+	width="200";
+	color:#deecfe;
+	margin-top:10px;
+	margin-bottom:20px;
+}
+ul.picdec {
+   list-style-type: none; 
+   font-size:0.8em;
+}
+
+.search{
+	background-color:#BCCACF;
+}
+
+.small{
+	margin-bottom:20px;	
+}
+.piecepic{
+	margin-bottom:10px;
+	border-radius:0px;
+}
+
+.wrapper {
+min-height: 100%;
+height: auto !important;
+margin-top:50px;
+background-color: black;
+padding-top:50px;
+overflow: hidden;
+}
+
+footer {
+height: 4em;
+text-align: center;
+}
+
+
+/*Some CSS*/
+
+.magnify {width: 500px; margin: 50px auto;}
+
+/*Lets create the magnifying glass*/
+.large {
+	width: 200px; height: 200px;
+	position: absolute;
+	border-radius: 100%;
+	
+	/*Multiple box shadows to achieve the glass effect*/
+	box-shadow: 0 0 0 7px rgba(255, 255, 255, 0.85), 
+	0 0 7px 7px rgba(0, 0, 0, 0.25), 
+	inset 0 0 40px 2px rgba(0, 0, 0, 0.25);
+	
+	/*Lets load up the large image first*/
+	/*background: url('Images/large.jpg') no-repeat;*/
+	
+}
+
+.magnify {
+	position: relative;
+}

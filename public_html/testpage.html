@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head >
+	<!--<meta charset="utf-8">-->
+	<title>Gallery</title>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+	<!--<script src="angular/angular.min.js"></script>
+	<script src="angular/angular-route.min.js"></script>
+	<!--<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
+	<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular-route.min.js"></script>-->
+		<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular.min.js"></script>
+	<link type="text/css" rel="stylesheet" href="css/popup.css" />
+	<script src="js/popup.js"></script>
+
+	<script>
+	var app = angular.module('myApp', []);
+	app.controller('myCtrl', function($scope, $http) {
+		$http.get("gallery.json")
+		.then(function(response) {
+			$scope.picdata = response.data;
+		});
+	});
+	</script>
+</head>
+
+<body ng-controller="myCtrl">
+<div > 
+        <ul data-ng-repeat="pic in picdata">
+            <li>{{pic.id}} - {{pic.thumbUrl}} - {{pic.Purchase}}</li>
+		</ul>
+</div>
+
+
+
+<!--<a href="#"><img id="large1.jpg" src="Images/large1.jpg" class="pics" alt="building" height="100" width="100"></a>-->
+<!--<a href="#"><img id="drop.jpg" src="Images/drop.jpg"  class="pics" alt="drop" height="100" width="100"></a>-->
+<div id="pop_background"></div>
+<div id="pop_box">
+<span id="btnclose">&times;</span>
+<!--<img src="Images/large.jpg" alt="Smiley face" height="100%" width="100%"/>-->
+
+
+	<!-- Lets make a simple image magnifier -->
+	<div class="magnify">
+		
+		<!-- This is the magnifying glass which will contain the original/large version -->
+		<div class="large" 	id="largeversion"> <!--style="background: url('Images/drop.jpg') no-repeat;">--></div>
+		
+		<!-- This is the small image -->
+		<img class="small" id="smallversion" /> <!--src="Images/drop.jpg" height="100%" width="100%"/>-->
+		
+	</div>
+</div>
+<!-- Lets load up prefixfree to handle CSS3 vendor prefixes -->
+<script src="http://thecodeplayer.com/uploads/js/prefixfree.js" type="text/javascript"></script>
+<!-- You can download it from http://leaverou.github.com/prefixfree/ -->
+
+<!-- Time for jquery action -->
+<!--<script src="http://thecodeplayer.com/uploads/js/jquery-1.7.1.min.js" type="text/javascript"></script>-->
+
+</body>
+
+</html>
